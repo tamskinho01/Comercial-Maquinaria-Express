@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('partials/head') %>
+        <%- include('partials/signout') %>
+            <style>
+                .centered-content {
+                    text-align: center;
+                }
+
+                table {
+                    margin: 0 auto;
+                    width: 80%;
+                    border-collapse: collapse;
+                }
+
+                th,
+                td {
+                    border: 1px solid #000;
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                th {
+                    background-color: #FFCA2C;
+                }
+            </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <%- include('partials/navigation') %>
+            <div class="container">
+                <h2 class="d-flex justify-content-center align-items-center p-5">Listado de Maquinaria</h2>
+                <hr>
+                <br>
+                <table id="tabla-maquinaria" class="shadow">
+                    <thead>
+                        <tr class="tw-bold">
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-maquinaria"></tbody>
+                </table>
+            </div>
+            <div class="content p-4">
+                <form class="row g-2">
+                    <!-- Aquí va el formulario de ingreso de datos -->
+                </form>
+            </div>
+    </div>
+    <%- include('partials/bootstrap') %>
+        <script>
+            // Función para cargar datos de inventario desde el backend
+            function cargarInventario() {
+                fetch('/inventario/datos')
+                    .then(response => response.json())
+                    .then(data => {
+                        const listaMaquinaria = document.getElementById('lista-maquinaria');
+                        listaMaquinaria.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
+                        data.forEach(maquinaria => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `<td>${maquinaria.codigo}</td><td>${maquinaria.nombre}</td><td>${maquinaria.tipo}</td>`;
+                            listaMaquinaria.appendChild(row);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            // Llamar a la función para cargar el inventario cuando se carga la página
+            window.onload = cargarInventario;
+        </script>
+</body>
+
+</html>

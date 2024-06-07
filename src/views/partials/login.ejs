@@ -1,0 +1,18 @@
+<script>
+    function login() {
+        const username = document.getElementById('exampleInputEmail1').value;
+        const password = document.getElementById('exampleInputPassword1').value;
+
+        // Verifica las credenciales (aquí puedes agregar tu lógica de autenticación)
+
+        if (username === 'admin' && password === 'admin123') {
+            // Si las credenciales son correctas, redirige al usuario a la página de inicio
+            window.location.href = '/home'; // Cambia la ruta según tu configuración
+            return false; // Evita que el formulario se envíe
+        } else {
+            // Si las credenciales son incorrectas, muestra un mensaje de error
+            alert('Usuario o contraseña incorrectos');
+            return false; // Evita que el formulario se envíe
+        }
+    }
+</script>

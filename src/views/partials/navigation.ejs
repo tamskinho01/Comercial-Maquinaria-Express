@@ -1,0 +1,31 @@
+<!-- partials/navigation.ejs -->
+<div class="sidebar bg-dark min-vh-100 d-flex flex-column align-items-center p-3">
+    <img src="/img/logo.png" alt="logo" class="img-fluid logo mb-3">
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto align-items-center" id="menu">
+        <li class="nav-item">
+            <a href="/home" class="nav-link align-middle px-0 text-white">
+                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/despacho" class="nav-link align-middle px-0 text-white">
+                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Guias de despacho</span>
+            </a>
+        </li>
+        <li>
+            <a href="/factura" class="nav-link px-0 align-middle text-white">
+                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Factura</span>
+            </a>
+        </li>
+        <li>
+            <a href="/inventario" class="nav-link px-0 align-middle text-white">
+                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span>
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div class="dropdown pb-4">
+        <button type="button" class="btn btn-warning" onclick="signout()">Salir</button>
+    </div>
+</div>

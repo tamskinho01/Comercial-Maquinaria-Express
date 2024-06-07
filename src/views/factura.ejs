@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%>
+    </title>
+    <%- include('partials/head')%>
+        <%- include('partials/signout')%>
+</head>
+
+<body>
+    <div class="d-flex">
+        <%- include('partials/navigation') %>
+            <div class="content p-4">
+                <form class="row g-2">
+                    <legend>Datos Receptor</legend>
+                    <hr>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputNombre">
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <div class="w-75">
+                            <label for="inputRut" class="form-label">RUT</label>
+                            <input type="text" class="form-control" id="inputRut" placeholder="12345678">
+                        </div>
+                        <div class="mx-2 align-self-center">-</div>
+                        <div class="w-25">
+                            <label for="inputDv" class="form-label"></label>
+                            <input type="text" class="form-control text-center" id="inputDv" placeholder="9">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="inputAddress" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputAddress" placeholder="@gmail.com">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Telefono</label>
+                        <input type="tel" class="form-control" id="inputPassword4" placeholder="999999999">
+                    </div>
+                    <div class="col-8">
+                        <label for="inputAddress2" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="inputAddress2"
+                            placeholder="Jose Joaquin Prieto Vial 3705">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputCity" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="Santiago de Chile">
+                    </div>
+                    <div class="col-8">
+                        <label for="inputGiro" class="form-label">Giro</label>
+                        <input type="text" class="form-control" id="inputGiro2" placeholder="Ingrese el giro">
+                    </div>
+                    <hr>
+                    <div class="col-md-4">
+                        <label for="inputArriendo" class="form-label">Tipo de arriendo</label>
+                        <select id="inputArriendo" class="form-select">
+                            <option selected>Elegir opcion...</option>
+                            <option>Diario</option>
+                            <option>Mensual</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputPassword4" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="inputCantidad" placeholder="Ingrese Cantidad"
+                            oninput="calculateSubtotal()">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="inputPrecio" oninput="calculateSubtotal()">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Subtotal </label>
+                        <input type="number" class="form-control" id="inputSubtotal" readonly>
+                    </div>
+                    <!--
+                    <div class="col-12">
+                        
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>-->
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Ingrese descripcion de la maquinaria"></textarea>
+                    </div>
+                </form>
+            </div>
+    </div>
+    <%- include('partials/bootstrap')%>
+        <script>
+            function calculateSubtotal() {
+                const precio = parseFloat(document.getElementById('inputPrecio').value) || 0;
+                const cantidad = parseInt(document.getElementById('inputCantidad').value) || 0;
+
+                const subTotal = cantidad * precio;
+
+                document.getElementById('inputSubtotal').value = subTotal.toFixed(0);
+            }
+        </script>
+</body>
+
+</html>
