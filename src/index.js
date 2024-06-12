@@ -36,7 +36,7 @@ app.get('/inventario/datos', (req, res) => {
 });
 
 // Ruta para servir el frontend
-app.get('/inventario', (req, res) => {
+app.get('/', (req, res) => {
     // Aquí puedes renderizar tu archivo HTML que contiene el frontend
     res.sendFile(join(__dirname, 'views'));
 });
@@ -48,7 +48,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.static(join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(join(__dirname, 'views', 'inventario.ejs'));
+    res.sendFile(join(__dirname, 'views'));
 });
 
 app.set('views', join(__dirname, 'views'))
