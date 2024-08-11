@@ -1,10 +1,14 @@
 import express from 'express';
-import {dirname, join} from 'path';
-import { fileURLToPath} from 'url';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 import indexRoutes from './routes/index.js';
 import mysql from 'mysql2';
 
 const app = express();
+
+// Configuración para manejar datos JSON en las solicitudes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Configurar conexión a MySQL
 const db = mysql.createConnection({
@@ -17,45 +21,26 @@ const db = mysql.createConnection({
 // Conectar a MySQL
 db.connect((err) => {
     if (err) {
+        console.error('Error connecting to MySQL:', err);
         throw err;
     }
-    console.log('Conectado a MySQL');
+    console.log('Connected to MySQL');
 });
 
-// Ruta para obtener datos de inventario desde la base de datos
-app.get('/inventario/datos', (req, res) => {
-    let sql = 'SELECT * FROM maquinaria';
-    db.query(sql, (err, result) => {
-        if (err) {
-            console.error('Error obteniendo datos de inventario:', err);
-            res.status(500).json({ error: 'Error obteniendo datos de inventario', message: err.message });
-        } else {
-            res.json(result);
-        }
-    });
-});
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Ruta para servir el frontend
-app.get('/', (req, res) => {
-    // Aquí puedes renderizar tu archivo HTML que contiene el frontend
-    res.sendFile(join(__dirname, 'views'));
-});
-
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
-// Configurar archivos estáticos
+// Ruta para servir el frontend (HTML, CSS, JavaScript)
 app.use(express.static(join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.sendFile(join(__dirname, 'views'));
+// Configurar las vistas y el motor de plantillas EJS
+app.set('views', join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// Middleware para manejar las rutas definidas en indexRoutes
+app.use('/', indexRoutes);
+
+// Iniciar el servidor
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-app.set('views', join(__dirname, 'views'))
-app.set('view engine', 'ejs')
-app.use(indexRoutes)
-
-app.listen(3000);
-console.log('server listen on port', 3000)
-
-

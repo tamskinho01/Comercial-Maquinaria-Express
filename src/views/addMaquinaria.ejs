@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <%- include('partials/head') %>
+        <%- include('partials/signout')%>
+</head>
+
+<body>
+    <div class="wrapper d-flex">
+        <%- include('partials/navigation') %>
+            <div class="content p-4">
+                <form action="/maquinaria/nueva" method="POST">
+                    <div class="mb-3">
+                        <label for="inputAddCodigo" class="form-label">Codigo</label>
+                        <input type="text" class="form-control" id="inputAddCodigo" aria-describedby="codigoMaquina"
+                            name="codigo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputAddNombre" class="form-label">Nombre de a maquina</label>
+                        <input type="text" class="form-control" id="inputAddNombre" name="nombre" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Submit</button>
+                </form>
+            </div>
+    </div>
+    <%- include('partials/bootstrap')%>
+</body>
+
+</html>

@@ -16,14 +16,14 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
             <img src="/img/logo.png" alt="logo" class="w-50">
             <hr>
-            <form id="loginForm" onsubmit="return login()" class="container">
+            <form id="loginForm" class="container" onsubmit="return login(event)">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                    <input type="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="inputUsuario" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="inputUsuario" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="inputPassword" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="inputPassword">
                 </div>
                 <div class="container d-flex justify-content-center align-items-center">
                     <button type="submit" class="btn btn-primary d-flex justify-content-center">Ingresar</button>

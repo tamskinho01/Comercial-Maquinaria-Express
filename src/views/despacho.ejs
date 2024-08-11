@@ -15,7 +15,7 @@
     <div class="wrapper d-flex">
         <%- include('partials/navigation') %>
             <div class="content p-4">
-                <form class="row g-2">
+                <form class="row g-2" method="POST">
                     <legend class="fw-bold">Datos Receptor</legend>
                     <hr>
                     <div class="row">
@@ -24,24 +24,25 @@
                                 <div class="col-sm-6 d-flex align-items-end">
                                     <div class="w-25">
                                         <label for="inputRut" class="form-label">RUT</label>
-                                        <input type="text" class="form-control" id="inputRut" placeholder="12345678">
+                                        <input type="text" class="form-control" id="inputRut" placeholder="12345678"
+                                            required>
                                     </div>
                                     <div class="mx-2 align-self-center">-</div>
                                     <div style="width: 50px;">
                                         <label for="inputDv" class="form-label"></label>
-                                        <input type="text" class="form-control text-center" id="inputDv"
-                                            placeholder="9">
+                                        <input type="text" class="form-control text-center" id="inputDv" placeholder="9"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="d-flex">
                                         <div class="w-50 me-3">
                                             <label for="inputNombre" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="inputNombre">
+                                            <input type="text" class="form-control" id="inputNombre" required>
                                         </div>
                                         <div class="w-50">
                                             <label for="inputObra" class="form-label">Obra</label>
-                                            <input type="text" class="form-control" id="inputObra">
+                                            <input type="text" class="form-control" id="inputObra" required>
                                         </div>
                                     </div>
                                 </div>
@@ -51,44 +52,49 @@
                             <div class="col-6">
                                 <label for="tipoGiro" class="form-label">Tipo de Compra</label>
                                 <input type="text" class="form-control" id="tipoGiro"
-                                    placeholder="Ingrese tipo de compra">
+                                    placeholder="Ingrese tipo de compra" required>
                             </div>
                             <div class="col-6">
                                 <label for="inputAddress2" class="form-label">Dirección</label>
                                 <input type="text" class="form-control" id="inputAddress2"
-                                    placeholder="Jose Joaquin Prieto Vial 3705">
+                                    placeholder="Jose Joaquin Prieto Vial 3705" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <label for="inputCity" class="form-label">Ciudad</label>
-                                <input type="text" class="form-control" id="inputCity" placeholder="Ingrese Ciudad">
+                                <input type="text" class="form-control" id="inputCity" placeholder="Ingrese Ciudad"
+                                    required>
                             </div>
                             <div class="col-6">
                                 <label for="inputComuna" class="form-label">Comuna</label>
-                                <input type="text" class="form-control" id="inputComuna" placeholder="Ingrese Comuna">
+                                <input type="text" class="form-control" id="inputComuna" placeholder="Ingrese Comuna"
+                                    required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <label for="inputGiro" class="form-label">Giro</label>
-                                <input type="text" class="form-control" id="inputGiro2" placeholder="Ingrese el giro">
+                                <input type="text" class="form-control" id="inputGiro2" placeholder="Ingrese el giro"
+                                    required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6">
                                 <label for="inputEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputAddress" placeholder="@gmail.com">
+                                <input type="email" class="form-control" id="inputAddress" placeholder="@gmail.com"
+                                    required>
                             </div>
                             <div class="col-md-6">
                                 <label for="inpuTelefono" class="form-label">Telefono</label>
-                                <input type="tel" class="form-control" id="inputTelefono" placeholder="999999999">
+                                <input type="tel" class="form-control" id="inputTelefono" placeholder="999999999"
+                                    required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="inputFecha" class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="inputFecha">
+                                <input type="date" class="form-control" id="inputFecha" required>
                             </div>
                         </div>
                         <hr>
@@ -100,44 +106,56 @@
                                     <div class="w-75">
                                         <label for="inputRutTransporte" class="form-label">RUT Transporte</label>
                                         <input type="text" class="form-control" id="inputRutTransporte"
-                                            placeholder="12345678">
+                                            placeholder="12345678" required>
                                     </div>
                                     <div class="mx-2 align-self-center">-</div>
                                     <div style="width: 50px;">
                                         <label for="inputDvTransporte" class="form-label"></label>
                                         <input type="text" class="form-control text-center" id="inputDvTransporte"
-                                            placeholder="9">
+                                            placeholder="9" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="w-100">
                                         <label for="inputPatente" class="form-label">Patente</label>
                                         <input type="text" class="form-control" id="inputPatente">
-                                    </div>
+                                    </div required>
                                 </div>
                                 <div class="col-md-3 d-flex align-items-end">
                                     <div class="w-75">
                                         <label for="inputRutChofer" class="form-label">RUT Chofer</label>
                                         <input type="number" class="form-control" id="inputRutChofer"
-                                            placeholder="12345678">
+                                            placeholder="12345678" required>
                                     </div>
                                     <div class="mx-2 align-self-center">-</div>
                                     <div style="width: 50px;">
                                         <label for="inputDvChofer" class="form-label"></label>
                                         <input type="text" class="form-control text-center" id="inputDvChofer"
-                                            placeholder="9">
+                                            placeholder="9" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="inputNombreChofer" class="form-label">Nombre Chofer</label>
-                                    <input type="text" class="form-control" id="inputNombreChofer">
+                                    <input type="text" class="form-control" id="inputNombreChofer" required>
                                 </div>
                             </div>
                         </div>
                         <hr>
-                        <div class="col-md-2">
-                            <label for="inputCantidad" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="inputCantidad">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="inputCantidad" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="inputCantidad" name="cantidad" min="1"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Contenedor para los códigos de las máquinas -->
+                        <div class="row mt-3" id="codigosMaquinasContainer">
+                            <div class="col-md-2">
+                                <label for="codigoMaquina1" class="form-label">Código Máquina</label>
+                                <input type="text" class="form-control" id="codigoMaquina1" name="codigoMaquina[]"
+                                    required>
+                            </div>
                         </div>
                         <!--
                     <div class="col-12">
@@ -150,11 +168,37 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                                 placeholder="Ingrese detalle"></textarea>
                         </div>
-                </form>
+                        <button type="submit" class="btn btn-warning">Generar Guía</button>
                 </form>
             </div>
     </div>
     <%- include('partials/bootstrap')%>
+        <script>
+            document.getElementById('inputCantidad').addEventListener('change', function () {
+                const cantidad = parseInt(this.value);
+                const container = document.getElementById('codigosMaquinasContainer');
+                container.innerHTML = ''; // Limpiar el contenedor
+
+                for (let i = 1; i <= cantidad; i++) {
+                    const div = document.createElement('div');
+                    div.className = 'col-md-2 mt-2';
+                    const label = document.createElement('label');
+                    label.className = 'form-label';
+                    label.htmlFor = 'codigoMaquina' + i;
+                    label.textContent = 'Código Máquina';
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'form-control';
+                    input.id = 'codigoMaquina' + i;
+                    input.name = 'codigoMaquina[]';
+                    input.required = true;
+
+                    div.appendChild(label);
+                    div.appendChild(input);
+                    container.appendChild(div);
+                }
+            });
+        </script>
 </body>
 
 </html>

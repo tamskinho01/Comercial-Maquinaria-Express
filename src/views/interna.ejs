@@ -147,7 +147,16 @@
                         </div>
                         <div class="col-md-2">
                             <label for="inputCantidad" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="inputCantidad">
+                            <input type="number" class="form-control" id="inputCantidad" name="cantidad" min="1"
+                                required>
+                        </div>
+                        <!-- Contenedor para los códigos de las máquinas -->
+                        <div class="row mt-3" id="codigosMaquinasContainer">
+                            <div class="col-md-2">
+                                <label for="codigoMaquina1" class="form-label">Código Máquina</label>
+                                <input type="text" class="form-control" id="codigoMaquina1" name="codigoMaquina[]"
+                                    required>
+                            </div>
                         </div>
                         <!--
                     <div class="col-12">
@@ -165,6 +174,32 @@
             </div>
     </div>
     <%- include('partials/bootstrap')%>
+        <script>
+            document.getElementById('inputCantidad').addEventListener('change', function () {
+                const cantidad = parseInt(this.value);
+                const container = document.getElementById('codigosMaquinasContainer');
+                container.innerHTML = ''; // Limpiar el contenedor
+
+                for (let i = 1; i <= cantidad; i++) {
+                    const div = document.createElement('div');
+                    div.className = 'col-md-2 mt-2';
+                    const label = document.createElement('label');
+                    label.className = 'form-label';
+                    label.htmlFor = 'codigoMaquina' + i;
+                    label.textContent = 'Código Máquina';
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'form-control';
+                    input.id = 'codigoMaquina' + i;
+                    input.name = 'codigoMaquina[]';
+                    input.required = true;
+
+                    div.appendChild(label);
+                    div.appendChild(input);
+                    container.appendChild(div);
+                }
+            });
+        </script>
 </body>
 
 </html>

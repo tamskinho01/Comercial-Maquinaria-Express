@@ -23,10 +23,16 @@
                 <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Factura</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="/inventario" class="nav-link px-0 align-middle text-white">
-                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fs-4 bi-file-earmark-text"></i> <span class="ms-1 d-none d-sm-inline">Inventario</span>
             </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><button class="dropdown-item" onclick="location.href='/addMaquinaria'">Agregar Maquinaria</button>
+                </li>
+                <li><button class="dropdown-item" onclick="location.href='/inventario'">Inventario</button></li>
+            </ul>
         </li>
     </ul>
     <hr>

@@ -23,7 +23,7 @@
                 th,
                 td {
                     border: 1px solid #000;
-                    text-align: left;
+                    text-align: center;
                     padding: 8px;
                 }
 
@@ -44,17 +44,13 @@
                     <thead>
                         <tr class="tw-bold">
                             <th>Código</th>
-                            <th>Nombre</th>
-                            <th>Tipo</th>
+                            <th>Nombre de la maquinaria</th>
+                            <th>Tipo de combustible</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody id="lista-maquinaria"></tbody>
                 </table>
-            </div>
-            <div class="content p-4">
-                <form class="row g-2">
-                    <!-- Aquí va el formulario de ingreso de datos -->
-                </form>
             </div>
     </div>
     <%- include('partials/bootstrap') %>
@@ -68,7 +64,7 @@
                         listaMaquinaria.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
                         data.forEach(maquinaria => {
                             const row = document.createElement('tr');
-                            row.innerHTML = `<td>${maquinaria.codigo}</td><td>${maquinaria.nombre}</td><td>${maquinaria.tipo}</td>`;
+                            row.innerHTML = `<td>${maquinaria.codigo}</td><td>${maquinaria.nombre}</td><td>${maquinaria.tipo}</td><td>${maquinaria.estado}</td>`;
                             listaMaquinaria.appendChild(row);
                         });
                     })
