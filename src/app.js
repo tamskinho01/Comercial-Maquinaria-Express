@@ -3,6 +3,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import indexRoutes from './routes/index.js';
 import mysql from 'mysql2';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
@@ -35,6 +36,9 @@ app.use(express.static(join(__dirname, 'public')));
 // Configurar las vistas y el motor de plantillas EJS
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// Configuracion de las cookies
+app.use(cookieParser())
 
 // Middleware para manejar las rutas definidas en indexRoutes
 app.use('/', indexRoutes);
